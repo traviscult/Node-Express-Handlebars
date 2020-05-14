@@ -39,6 +39,7 @@ function objToSql(ob) {
     return arr.toString();
 }
 
+// Object for all our SQL statement functions.
 const orm = {
     selectAll: (tableInput, cb) => {
         let queryString = `SELECT * FROM ${tableInput};`;
@@ -49,19 +50,27 @@ const orm = {
             cb(res);
         });
     },
-    insertOne: (tableName, cols, vals, cb) = {
+    insertOne: (tableName, cols, vals, cb) => {
         let queryString = `INSERT INTO ${tableName} (${cols.toString()}) VALUES (${printQuestionMarks(vals.length)});`;
-        connection.query(queryStatement, vals, (err, result) => {
+        connection.query(queryString, vals, (err, result) => {
             if (err) throw err;
             console.log("Sucesfully Added");
-            callback(result);
+            cb(result);
         })
 
     },
 
-    updateOne:
+    updateOne: (tableName, cols, vals, condition, cb) => {
+        let queryString  = `UPDATE ${tableName} SET ${cols.toString()} = ? WHERE ${condition}`;
 
-}
+        connection.query(queryStatement, vals, (err, result) => {
+            if (err) throw err;
+            console.log("Sucesfully Updated");
+            console.log("Executing Third Declared CallBack");
+            callback(result);
+          });
+    }
+};
 
 
 
