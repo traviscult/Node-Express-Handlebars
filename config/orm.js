@@ -52,10 +52,10 @@ const orm = {
     },
     insertOne: (tableName, cols, vals, cb) => {
         let queryString = `INSERT INTO ${tableName} (${cols.toString()}) VALUES (${printQuestionMarks(vals.length)});`;
-        connection.query(queryString, vals, (err, result) => {
+        connection.query(queryString, vals, (err, res) => {
             if (err) throw err;
             console.log("Sucesfully Added");
-            cb(result);
+            cb(res);
         })
 
     },
@@ -63,16 +63,13 @@ const orm = {
     updateOne: (tableName, cols, vals, condition, cb) => {
         let queryString  = `UPDATE ${tableName} SET ${cols.toString()} = ? WHERE ${condition}`;
 
-        connection.query(queryStatement, vals, (err, result) => {
+        connection.query(queryString, vals, (err, result) => {
             if (err) throw err;
             console.log("Sucesfully Updated");
             console.log("Executing Third Declared CallBack");
-            callback(result);
+            cb(res);
           });
     }
 };
-
-
-
 
 module.exports = orm;
