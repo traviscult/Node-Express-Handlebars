@@ -17,7 +17,7 @@
             <ul>
                 {{#each burgers}}
                 {{#if this.devoured}}
-                <p>{{burger_name}}</p>
+                <p>{{this.burger_name}}</p>
                 {{/if}}
                 {{/each}}
             </ul>
@@ -27,7 +27,7 @@
 
 <div class="container ">
     <div class="form-group">
-        <form action="">
+        <label for="ca">Burger Name:</label>
             <input type="Burger" class="form-control" id="Type your burger here!">
             <button type="submit">Add Burger</button>
         </form>
