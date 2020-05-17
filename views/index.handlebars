@@ -7,12 +7,7 @@
             <ul>
                 {{#each burgers}}
                 {{#unless this.devoured}}
-                <div>
-                    <form>
-                        <input type="hidden" value={{this.id}}>
-                        <button type="submit" class="btn btn-primary">Devour!</button>
-                    </form>
-                </div>
+                <p>{{this.burger_name}} <button type="submit" class="devour btn btn-primary" data-id="{{id}}">Devour!</button></p>
                 {{/unless}}
                 {{/each}}
             </ul>
@@ -22,11 +17,7 @@
             <ul>
                 {{#each burgers}}
                 {{#if this.devoured}}
-                <div>
-                    <form >
-                        <input type="text" placeholder= {{this.burger_name}}>
-                    </form>
-                </div>
+                <p>{{burger_name}}</p>
                 {{/if}}
                 {{/each}}
             </ul>
