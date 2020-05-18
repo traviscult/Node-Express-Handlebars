@@ -67,7 +67,7 @@ const orm = {
             if (err) throw err;
             console.log("Sucesfully Updated");
             console.log("Executing Third Declared CallBack");
-            cb(res);
+            cb(result);
           });
     }
 };

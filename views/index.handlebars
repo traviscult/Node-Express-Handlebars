@@ -7,8 +7,9 @@
             "MMM Burgers waiting to be eaten!"
             <ul>
                 {{#each burgers}}
-                {{#unless this.devoured}}
-                <p>{{this.burger_name}} <button type="submit" class="devour btn btn-primary" data-id="{{id}}">Devour!</button></p>
+                {{#unless devoured}}
+                <p>{{burger_name}} <button type="submit" class="devour btn btn-primary"
+                        data-id="{{id}}">Devour!</button></p>
                 {{/unless}}
                 {{/each}}
             </ul>
@@ -17,8 +18,8 @@
             "eaten burgers"
             <ul>
                 {{#each burgers}}
-                {{#if this.devoured}}
-                <p>{{this.burger_name}}</p>
+                {{#if devoured}}
+                <p>{{burger_name}}</p>
                 {{/if}}
                 {{/each}}
             </ul>
@@ -26,11 +27,16 @@
     </div>
 </div>
 
+
 <div class="container ">
-    <div class="form-group">
-        <label for="label ca">Burger Name:</label>
-            <input type="Burger" class="form-control" id="Type your burger here!">
-            <button type="submit">Add Burger</button>
-        </form>
-    </div>
+    <h2>Add a Burger</h2>
+    <form class="create-form">
+
+        <div class="form-group">
+            <label for="ca">Burger Name:</label>
+            <input type="text" id="ca" name="name">
+        </div>
+
+        <button type="submit">Add Burger</button>
+    </form>
 </div>
