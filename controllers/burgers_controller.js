@@ -17,10 +17,10 @@ router.get("//", (req, res) => {
 });
 
 router.post("/api/burgers", (req, res) => {
-    console.log("router.post is being called")
-    burgers.insertOne(req.body.burger_name, (result) => {
+    console.log("router.post is being called", req.body)
+    burgers.insertOne(["burger_name", "devoured"],[req.body.name, req.body.devoured], (result) => {
         console.log(result)
-        res.redirect("/")
+        res.json({ id: result.insertId });
     })
 })
 

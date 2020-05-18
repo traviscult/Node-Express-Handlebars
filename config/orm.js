@@ -60,8 +60,8 @@ const orm = {
 
     },
 
-    updateOne: (tableName, cols, vals, condition, cb) => {
-        let queryString  = `UPDATE ${tableName} SET ${cols.toString()} = ? WHERE ${condition}`;
+    updateOne: (tableName, objColVals, vals, condition, cb) => {
+        let queryString  = `UPDATE ${tableName} SET (${objToSql(objColVals)}) WHERE ${condition}`;
 
         connection.query(queryString, vals, (err, result) => {
             if (err) throw err;
@@ -71,5 +71,5 @@ const orm = {
           });
     }
 };
-
+// Export the orm object for the model (burger.js).
 module.exports = orm;
