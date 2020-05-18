@@ -5,7 +5,7 @@ const router = express.Router();
 // Import the model (burgers.js) to use its database functions.
 const burgers = require("../models/burger.js");
 
-router.get("//", (req, res) => {
+router.get("/", (req, res) => {
     console.log("Router.Get is being called")
     burgers.selectAll((data) => {
         const hbsObj = {
@@ -26,7 +26,8 @@ router.post("/api/burgers", (req, res) => {
 
 router.put("/api/burgers/:id", (req, res) => {
     const condition = "id = " + req.params.id;
-
+    console.log("condition in burgers controller", condition)
+    console.log(req.body.devoured)
     burgers.updateOne({
         devoured: req.body.devoured
     }, condition, (result) => {

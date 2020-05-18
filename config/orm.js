@@ -60,10 +60,18 @@ const orm = {
 
     },
 
-    updateOne: (tableName, objColVals, vals, condition, cb) => {
-        let queryString  = `UPDATE ${tableName} SET (${objToSql(objColVals)}) WHERE ${condition}`;
+    updateOne: (tableName, objColVals, condition, cb) => {
+        // let queryString  = `UPDATE ${tableName} SET (${objToSql(objColVals)}) WHERE ${condition}`;
+        let queryString = `UPDATE ${tableName}`;
 
-        connection.query(queryString, vals, (err, result) => {
+        queryString += " SET ";
+        queryString += objToSql(objColVals);
+        queryString += " WHERE ";
+        queryString += condition;
+    
+        console.log(queryString);
+
+        connection.query(queryString, (err, result) => {
             if (err) throw err;
             console.log("Sucesfully Updated");
             console.log("Executing Third Declared CallBack");
