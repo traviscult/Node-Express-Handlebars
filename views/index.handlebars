@@ -6,8 +6,8 @@
         <img src="/assets/img/bacon-burger.png" alt="Burger Image" id="burgerImage" style="height: 300px; width:auto" />
     </div>
 
-    <div class="container burgerList">
-        <div class="row d-flex justify-content-center align-items-center">
+    <div class="container burgerList jumbotron">
+        <div class="row d-flex justify-content-center align-items-start ">
             <div class="col-md-6">
                 <h4>"Mmmm Burgers waiting to be eaten!"</h4>
                 <ul>
@@ -35,13 +35,12 @@
 
 
 <div class="container">
-    <div class=" col-md-12">
+    <div class="col-md-12">
         <h6>Add a Burger</h6>
         <form class="create-form">
-            <div class="form-group">
+            <div class="form-group d-flex justify-content-center align-items-center">
                 <label>Burger Name:</label>
-                <input type="text" id="ca" name="name">
+                <input type="text" id="ca" name="name"> <button type="submit" class="btn">Add Burger</button>
             </div>
-            <button type="submit">Add Burger</button>
         </form>
     </div>
